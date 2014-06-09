@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * @file
+ * Services api for LiveTime.
+ */
+
+
+/**
+ * Implements hook_menu().
+ * 
+ */
+function service_menu() {
+
+	$items['api/v1/user/login'] = array(
+		'title' => 'Login',
+	    'description' => 'Api for login.',
+	    'page callback' => 'service_resource_user_login',
+	    'access callback' => TRUE,
+	    'file' => 'service.resource.user.inc',
+	);
+
+	$items['api/v1/user/signup'] = array(
+		'title' => 'Sign up',
+		'description' => 'Api for signup',
+		'page callback' => 'service_resource_user_signup',
+		'access callback' => TRUE,
+		'file' => 'service.resource.user.inc',
+	);
+
+	return $items;
+}

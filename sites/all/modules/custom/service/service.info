@@ -1,0 +1,4 @@
+name = LiveTime services
+description = Services api for LiveTime.
+core = 7.x
+package = LiveTime
