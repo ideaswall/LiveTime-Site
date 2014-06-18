@@ -28,5 +28,21 @@ function service_menu() {
 		'file' => 'service.resource.user.inc',
 	);
 
+	$items['api/v1/broadcast/index'] = array(
+		'title' => 'Broadcast',
+		'description' => 'Api for broadcast',
+		'page callback' => 'service_resource_broadcast_index',
+		'access callback' => TRUE,
+		'file' => 'service.resource.broadcast.inc',
+	);
+
+	$items['api/v1/broadcast/create'] = array(
+		'title' => 'Create Broadcast',
+		'description' => 'Api for creating broadcast',
+		'page callback' => 'service_resource_broadcast_create',
+		'access callback' => TRUE,
+		'file' => 'service.resource.broadcast.inc',
+	);
+
 	return $items;
 }
