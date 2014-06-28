@@ -30,7 +30,10 @@ function service_resource_user_login() {
         // check the pass
         if (user_check_password($password, $account)) {
             
-            echo json_encode(array('status' => 'true', 'content' => $mail));exit;
+            $user = new stdClass();
+            $user->mail = $account->mail;
+            $user->uid = $account->uid;
+            echo json_encode(array('status' => 'true', 'content' => $user));exit;
         } else {
 
             echo json_encode(array('status' => 'false', 'content' => '用户名或密码输入错误.'));exit;

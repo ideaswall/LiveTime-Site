@@ -7,7 +7,7 @@
 function service_resource_broadcast_index() {
 	header('Content-Type: application/json');
 	
-	$nids = db_query("SELECT nid FROM node WHERE type = 'broadcast'")->fetchAll();
+	$nids = db_query("SELECT nid FROM node WHERE type = 'broadcast' ORDER BY created DESC")->fetchAll();
 
 	if ($nids == NULL) {
 		echo json_encode(array('status' => 'false', 'content' => '没有视频信息'));exit;
@@ -22,7 +22,7 @@ function service_resource_broadcast_index() {
 			'roomNO' => $node->nid,
 			'uid' => $node->uid,
 			'broadcastType' => $term->name,
-			);
+		);
 	}
 	// print_r($Broadcast);exit;
 	echo json_encode(array('status' => 'true', 'content' => $Broadcast));
